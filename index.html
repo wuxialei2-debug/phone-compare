@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手机参数对比工具</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <header id="top-bar">
+    <h1>手机参数对比工具</h1>
+    <div class="header-right">
+      <span id="data-status" class="status-dot" title="数据状态"></span>
+      <button id="btn-update" class="btn-outline">更新数据</button>
+    </div>
+  </header>
+
+  <div id="main-container">
+    <!-- 左侧面板 -->
+    <aside id="left-panel">
+      <div class="panel-header">
+        <span class="panel-title">手机列表</span>
+        <span id="total-count" class="badge"></span>
+      </div>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="搜索品牌或型号..." autocomplete="off">
+      </div>
+      <div class="sort-row">
+        <label for="sort-select">排序:</label>
+        <select id="sort-select">
+          <option value="price-asc">价格 ↑</option>
+          <option value="price-desc">价格 ↓</option>
+          <option value="battery-desc">电池 ↓</option>
+          <option value="antutu-desc">安兔兔 ↓</option>
+          <option value="weight-asc">重量 ↑</option>
+        </select>
+      </div>
+      <div id="phone-list" class="phone-list"></div>
+      <div class="panel-footer">
+        <span>已选: <strong id="selected-count">0</strong> / 4</span>
+      </div>
+    </aside>
+
+    <!-- 右侧面板 -->
+    <main id="right-panel">
+      <div class="panel-header">
+        <span class="panel-title">对比结果</span>
+      </div>
+      <div id="compare-area">
+        <div id="placeholder-msg" class="placeholder">
+          请在左侧勾选 2~4 款手机<br>然后点击「开始对比」
+        </div>
+        <div id="detail-container" style="display:none;">
+          <div id="detail-card"></div>
+        </div>
+        <div id="table-container" style="display:none;">
+          <div id="compare-table"></div>
+        </div>
+      </div>
+      <!-- 底部操作栏 -->
+      <div class="bottom-bar">
+        <button id="btn-compare" class="btn-primary">开始对比</button>
+        <button id="btn-clear" class="btn-outline">清空</button>
+        <div class="legend">
+          <span><i class="dot best"></i> 最优</span>
+          <span><i class="dot diff"></i> 差异</span>
+          <span><i class="dot same"></i> 一致</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/utils.js"></script>
+  <script src="/static/js/list.js"></script>
+  <script src="/static/js/table.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
